@@ -1,0 +1,7 @@
+beautifulsoup4 
+langchain 
+langchain_text_splitters
+markdownify 
+numpy 
+requests 
+sentence-transformers
