@@ -42,13 +42,13 @@ def build_faiss(docs, embedding_model, idx_path, metadata_path, batch_size=64):
 if __name__=='__main__':
     from sentence_transformers import SentenceTransformer
 
-    from constants import IDX_PATH, METADATA_PATH, RAW_DIR
+    from constants import EMBEDDING_MODEL, IDX_PATH, METADATA_PATH, RAW_DIR
     from ingestion.chunk import process_docs
 
 
     docs = process_docs(raw_dir=RAW_DIR)
 
-    embedding_model = SentenceTransformer("BAAI/bge-small-en-v1.5")
+    embedding_model = SentenceTransformer(EMBEDDING_MODEL)
 
     build_faiss(
         docs=docs,
