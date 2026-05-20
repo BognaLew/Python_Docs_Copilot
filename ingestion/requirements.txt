@@ -1,7 +1,9 @@
 beautifulsoup4 
-langchain 
+faiss-cpu
+langchain_core
 langchain_text_splitters
 markdownify 
 numpy 
 requests 
 sentence-transformers
+torch

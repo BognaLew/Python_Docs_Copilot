@@ -1,4 +1,5 @@
 BASE_URL = 'https://docs.python.org/3/'
 
 RAW_DIR = 'data/raw'
-PROCESSED_DIR = 'data/processed'
+IDX_PATH = 'data/faiss.index'
+METADATA_PATH = 'data/metadata.pkl'
