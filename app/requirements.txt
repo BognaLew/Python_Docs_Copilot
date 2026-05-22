@@ -1,2 +1,7 @@
+accelerate
 faiss-cpu
+langchain
+langchain-huggingface
 sentence-transformers
+torch
+transformers
