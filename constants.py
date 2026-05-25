@@ -5,7 +5,8 @@ IDX_PATH = 'data/faiss.index'
 METADATA_PATH = 'data/metadata.pkl'
 
 EMBEDDING_MODEL = 'BAAI/bge-small-en-v1.5'
-GENERATOR_MODEL = "microsoft/Phi-3-mini-4k-instruct"
+RERANKER_MODEL = 'BAAI/bge-reranker-base'
+GENERATOR_MODEL = 'Qwen/Qwen2.5-1.5B-Instruct'
 
 MAX_NEW_TOKENS = 512
 TEMPERATURE = 0.2

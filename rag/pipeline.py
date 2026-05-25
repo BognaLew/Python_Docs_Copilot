@@ -1,10 +1,11 @@
-from operator import itemgetter
-
 from langchain_core.output_parsers import StrOutputParser
 
-from app.generation import Generator
-from app.prompt import prompt_template
-from app.retrieval import Retriever
+from rag.generation import Generator
+from rag.prompt import prompt_template
+from rag.reranker import Reranker
+from rag.retrieval import Retriever
+from rag.validator import Validator
+
 
 class RAGPipeline:
     def __init__(
@@ -12,6 +13,7 @@ class RAGPipeline:
         idx_path: str, 
         metadata_path: str, 
         embedding_model: str,
+        reranker_model: str,
         generator_model: str,
     ):
         self.retriever = Retriever(
@@ -19,7 +21,8 @@ class RAGPipeline:
             metadata_path=metadata_path,
             embedding_model=embedding_model,
         )
-
+        self.reranker = Reranker(reranker_model=reranker_model)
+        self.validator = Validator()
         self.generator = Generator(model_name=generator_model)
         
         self.chain = (
@@ -31,10 +34,17 @@ class RAGPipeline:
     def answer(self, question: str) -> str:
         docs = self.retriever.invoke(question)
 
-        if not docs:
-            return "I could not find the answer in the documentation"
+        ranked = self.reranker.rerank(query, docs)
 
-        context = "\n\n".join(doc.page_content for doc in docs)
+        if not self.validator.validate(ranked):
+            return "Fallback: I could not find the answer in the documentation"
+
+        context_docs = [
+            doc
+            for doc, _ in ranked[:3]
+        ]
+
+        context = "\n\n".join(doc.page_content for doc in context_docs)
         return self.chain.invoke({
             'question': question,
             'context': context,
