@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  rag-service:
+    build:
+      context: ./rag
+    container_name: rag-service
+    ports:
+      - "8081:8081"
+    runtime: nvidia
+    env_file:
+      - .env
+    volumes:
+      - ./data:/data
+
+  ui-service:
+    build:
+      context: ./ui
+    container_name: ui-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - rag-service

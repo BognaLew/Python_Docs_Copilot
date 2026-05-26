@@ -55,18 +55,3 @@ class Retriever(BaseRetriever):
             )
 
         return documents
-    
-
-if __name__=='__main__':
-    from constants import EMBEDDING_MODEL, IDX_PATH, METADATA_PATH
-
-
-    retriever = Retriever(
-        idx_path=IDX_PATH,
-        metadata_path=METADATA_PATH,
-        embedding_model=EMBEDDING_MODEL,
-    )
-
-    query = 'What is a Python generator?'
-    result = retriever.invoke(query)
-    print(result)

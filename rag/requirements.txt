@@ -1,7 +1,10 @@
 accelerate
 faiss-cpu
+fastapi
 langchain
 langchain-huggingface
+pydantic
 sentence-transformers
 torch
 transformers
+uvicorn
