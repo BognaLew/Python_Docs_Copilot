@@ -3,7 +3,7 @@ from langchain_core.output_parsers import StrOutputParser
 from rag.generator import Generator
 from prompt import prompt_template
 from reranker import Reranker
-from retrieval import Retriever
+from retriever import Retriever
 from validator import Validator
 
 

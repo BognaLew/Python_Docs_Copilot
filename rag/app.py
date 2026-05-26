@@ -3,7 +3,7 @@ import os
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from pipeline import RAGPipeline
+from rag_pipeline import RAGPipeline
 
 
 app = FastAPI()
