@@ -8,8 +8,8 @@ from transformers import (
 )
 from langchain_huggingface import HuggingFacePipeline
 
-MAX_NEW_TOKENS = os.getenv('MAX_NEW_TOKENS')
-TEMPERATURE = os.getenv('TEMPERATURE')
+MAX_NEW_TOKENS = int(os.getenv('MAX_NEW_TOKENS'))
+TEMPERATURE = float(os.getenv('TEMPERATURE'))
 
 class Generator:
     def __init__(self, model_name: str):
