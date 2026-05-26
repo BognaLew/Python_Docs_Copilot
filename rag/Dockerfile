@@ -5,6 +5,9 @@ WORKDIR /app
 ENV TRANSFORMERS_CACHE=/models
 ENV HF_HOME=/models
 
+RUN python -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
 COPY requirements.txt .
 
 RUN pip install --upgrade pip
