@@ -1,6 +1,6 @@
 from langchain_core.output_parsers import StrOutputParser
 
-from rag.generator import Generator
+from generator import Generator
 from prompt import prompt_template
 from reranker import Reranker
 from retriever import Retriever
