@@ -2,6 +2,8 @@ FROM pytorch/pytorch:2.11.0-cuda12.8-cudnn9-runtime
 
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y python3-venv 
+
 ENV TRANSFORMERS_CACHE=/models
 ENV HF_HOME=/models
 

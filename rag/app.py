@@ -11,8 +11,8 @@ app = FastAPI()
 EMBEDDING_MODEL = os.getenv('EMBEDDING_MODEL')
 GENERATOR_MODEL = os.getenv('GENERATOR_MODEL')
 IDX_PATH = os.getenv('IDX_PATH')
-METADATA_PATH = os.getenv('METADATA_PATHH')
-RERANKER_MODEL = os.getenv('IRERANKER_MODEL')
+METADATA_PATH = os.getenv('METADATA_PATH')
+RERANKER_MODEL = os.getenv('RERANKER_MODEL')
 
 rag = RAGPipeline(
     idx_path=IDX_PATH,
