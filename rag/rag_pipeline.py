@@ -37,7 +37,10 @@ class RAGPipeline:
         ranked = self.reranker.rerank(question, docs)
 
         if not self.validator.validate(ranked):
-            return "Fallback: I could not find the answer in the documentation"
+            return {
+                'answer': 'Fallback: Not enough relevant context was found.',
+                'context': '',
+            }
 
         context_docs = [
             doc
@@ -50,6 +53,7 @@ class RAGPipeline:
             'question': question,
             'context': context,
         })
+
         return {
             'answer': result,
             'context': context,

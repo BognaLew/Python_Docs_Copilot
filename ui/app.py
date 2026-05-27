@@ -15,11 +15,12 @@ def chat(message, history):
         json=payload
     )
 
+    response.raise_for_status()
+
     data = response.json()
 
     answer = data["answer"]
-
-    context = data.get("context")
+    context = data["context"]
 
     final_answer = f"""
         {answer}
