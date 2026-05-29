@@ -18,4 +18,4 @@ class Validator:
             0.3 * avg_top3
         )
 
-        return confidence < 0.7
+        return confidence > 0.7

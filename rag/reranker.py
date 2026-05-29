@@ -5,11 +5,9 @@ from sentence_transformers import CrossEncoder
 
 class Reranker:
     def __init__(self, reranker_model: str):
-
         self.model = CrossEncoder(reranker_model)
 
     def rerank(self, query: str, docs: List[Document]):
-
         pairs = [
             [query, doc.page_content]
             for doc in docs
@@ -24,3 +22,4 @@ class Reranker:
         )
 
         return ranked
+    
